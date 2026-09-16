@@ -12,6 +12,7 @@ class Program
         string letter = "";
         string pass = "";
 
+        // Calculate letter grade
         if (grade >= 90)
         {
             letter = "A";
@@ -33,6 +34,7 @@ class Program
             letter = "F";
         }
 
+        // See if you pass the class
         if (grade >= 70)
         {
             pass = "Good job you passed the class!";
@@ -42,6 +44,7 @@ class Program
             pass = "Sorry you didn't pass the class. Better luck next time!";
         }
 
+        // Final output
         Console.WriteLine($"You got a {letter}. {pass}");
 
     }
