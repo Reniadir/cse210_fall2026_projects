@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel;
 using System.Security.Cryptography.X509Certificates;
 
 class Program
@@ -9,6 +10,7 @@ class Program
         string userInput = Console.ReadLine();
         int grade = int.Parse(userInput);
         string letter = "";
+        string pass = "";
 
         if (grade >= 90)
         {
@@ -30,7 +32,17 @@ class Program
         {
             letter = "F";
         }
-        Console.WriteLine($"")
+
+        if (grade >= 70)
+        {
+            pass = "Good job you passed the class!";
+        }
+        else
+        {
+            pass = "Sorry you didn't pass the class. Better luck next time!";
+        }
+
+        Console.WriteLine($"You got a {letter}. {pass}");
 
     }
 }
