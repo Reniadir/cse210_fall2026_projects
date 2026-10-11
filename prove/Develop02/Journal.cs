@@ -33,7 +33,7 @@ class Journal
 
         foreach (string line in lines)
         {
-            string[] parts = line.Split(",");
+            string[] parts = line.Split("~");
 
             JournalEntry newEntry= new JournalEntry();
             newEntry._date = parts[0];

@@ -14,6 +14,7 @@ class Program
         while (response != 5)
         {
             response = MyMenu.ProcessMenu();
+            Console.WriteLine();
             switch (response)
             {
                 case 1:
@@ -23,21 +24,21 @@ class Program
                     executionJournal.AddEntry(entry);
                     break;
                 case 2:
-                    Console.WriteLine("Journal:");
+                    Console.WriteLine("Journal: ");
                     executionJournal.DisplayJournal();
                     break;
                 case 3:
-                    Console.WriteLine("Save to: ");
+                    Console.Write("Save to: ");
                     file = Console.ReadLine();
                     executionJournal.SaveToFile(file);
                     break;
                 case 4:
-                    Console.WriteLine("Read from: ");
+                    Console.Write("Read from: ");
                     file = Console.ReadLine();
                     executionJournal.ReadFromFile(file);
                     break;
-
             }
+            Console.WriteLine();
         }
     }
 }
