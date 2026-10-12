@@ -32,7 +32,7 @@ class Program
             num5.SetBot(bot);
             string frac = num5.GetFractionString();
             double dec = num5.GetDecimalValue();
-            Console.WriteLine($"Fraction {i}: String: {frac} Number: {dec}");
+            Console.WriteLine($"Fraction {i+1}: String: {frac} Number: {dec}");
         }
     }
 }
