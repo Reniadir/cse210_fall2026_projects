@@ -13,6 +13,16 @@ class Scripture
         // TODO Add Scripture Refernce
         _words = ConvertToWords(text);
     }
+    public void HideSomeWords()
+    {
+        int numWords = _words.Count;
+        Random random = new Random();
+        for ( int i = 0; i< 1; i++)
+        {
+            int hideIndex = random.Next(1, numWords);
+            _words[hideIndex].Hide();
+        }
+    }
     public void ShowScripture()
     {
         foreach (Word word in _words)
