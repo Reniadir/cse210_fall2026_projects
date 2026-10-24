@@ -3,8 +3,8 @@ using System.Diagnostics.Metrics;
 
 class Scripture
 {
-    List<Word> _words;
-    ScriptureReference _reference;
+    private List<Word> _words;
+    private ScriptureReference _reference;
 
     public Scripture(string BookName, int chapter, int verse, string text)
     {
