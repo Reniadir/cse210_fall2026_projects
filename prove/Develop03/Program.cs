@@ -10,11 +10,13 @@ class Program
         string userInput = "";
         Scripture myScripture = new Scripture("Moses", 1, 39, " For behold this is my work and my glory to bring to pass the immortatlity and eternal life of man.");
         Console.Clear();
+        Console.WriteLine("Welcome to the Scripoture Memorizer! Press Enter to hide a word, type exit and press enter to leave.");
+        Console.WriteLine();
         myScripture.ShowScripture();
 
         while (continueProgram == true)
         {
-            userInput = Console.ReadLine();
+            userInput = Console.ReadLine().ToLower();
             if (userInput == "exit")
             {
                 break;

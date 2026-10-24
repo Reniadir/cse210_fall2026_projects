@@ -1,34 +1,65 @@
+using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.Metrics;
+
 class Scripture
 {
     List<Word> _words;
-    // TODO: Add Scripture Refernce
+    ScriptureReference _reference;
 
     public Scripture(string BookName, int chapter, int verse, string text)
     {
-        // TODO Add Scripture Refernce
+        _reference = new ScriptureReference(BookName, chapter, verse);
         _words = ConvertToWords(text);
     }
     public Scripture(string BookName, int chapter, int startVerse, int endVerse, string text)
     {
-        // TODO Add Scripture Refernce
+        _reference = new ScriptureReference(BookName, chapter, startVerse, endVerse);
         _words = ConvertToWords(text);
     }
     public void HideSomeWords()
     {
-        int numWords = _words.Count;
-        Random random = new Random();
-        for ( int i = 0; i< 1; i++)
+                int numWords = _words.Count;
+
+         if (NumberOfHiddenWords() == numWords)
         {
-            int hideIndex = random.Next(1, numWords);
-            _words[hideIndex].Hide();
+            return;
         }
+
+        Random random = new Random();
+        int wordsToHide = 1; // Change this to hide more words per turn (e.g., 3)
+        int hiddenThisTurn = 0;
+
+        while (hiddenThisTurn < wordsToHide && NumberOfHiddenWords() < numWords)
+        {
+            int hideIndex = random.Next(0, numWords); // Start at 0 so the first word isn't skipped
+
+            if (!_words[hideIndex].IsHidden())
+            {
+                _words[hideIndex].Hide();
+                hiddenThisTurn++;
+            }
+        }
+
     }
     public void ShowScripture()
     {
+        _reference.DisplayScriptureReference();
         foreach (Word word in _words)
         {
             word.Display();
         }
+    }
+    private int NumberOfHiddenWords()
+    {
+        int numHidden = 0;
+        foreach (Word word in _words)
+        {
+            if (word.IsHidden() == true)
+            {
+                numHidden++; 
+            }
+        }
+        return numHidden;
     }
     private List<Word> ConvertToWords(string text)
     {
