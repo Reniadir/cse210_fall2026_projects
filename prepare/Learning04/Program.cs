@@ -1,9 +1,11 @@
 using System;
+using System.Dynamic;
 
 class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Learning04 World!");
+        Assignment myAssignment = new Assignment("Logan Smedley", "Multiplication");
+        
     }
 }
