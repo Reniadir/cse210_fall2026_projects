@@ -27,15 +27,15 @@ class Activities
     {
         Console.CursorVisible = false;
         Console.Clear();
-        Console.Write($"{message}");
-        for (int i=0; i<count; i++)
+        Console.Write($"{message} ");
+        string spinnerAnimation = "-\\|/";
+        int index = 0;
+        DateTime endTime = DateTime.Now.AddSeconds(count);
+        while (DateTime.Now < endTime)
         {
-            Console.Write("+");
-            Thread.Sleep(200);
+            Console.Write($"{spinnerAnimation[index++ % spinnerAnimation.Length]}");
             Console.Write("\b");
-            Console.Write("-");
-            Thread.Sleep(200);
-            Console.Write("\b");
+            Thread.Sleep(300);
         }
         Console.CursorVisible = true;
     }
