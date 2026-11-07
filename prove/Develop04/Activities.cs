@@ -1,4 +1,5 @@
 using System.ComponentModel;
+using System.Dynamic;
 
 class Activities
 {
@@ -6,12 +7,28 @@ class Activities
     private string _name;
     private string _desc;
 
+
     public Activities(int time, string name, string desc)
     {
         _time = time;
         _name = name;
         _desc = desc;
     }
+    public void StartMessage()
+    {
+        Console.WriteLine($"Welcome to the {_name}.");
+        Console.WriteLine($"{_desc}");
+        Console.WriteLine("How long would you like to do this activity?");
+        string userInput = Console.ReadLine();
+        int newDuration = int.Parse(userInput);
+        SetTime(newDuration);
+        Countdown("Begin in", 5);
+    }
+    public void EndMessage()
+    {
+        Spinner("Thanks for participating", 5);
+    }
+
     public void Countdown(string message, int count)
     {
         Console.CursorVisible = false;
@@ -38,5 +55,13 @@ class Activities
             Thread.Sleep(300);
         }
         Console.CursorVisible = true;
+    }
+    public int GetTime()
+    {
+        return _time;
+    }
+    public void SetTime(int newDuration)
+    {
+        _time = newDuration;
     }
 }

@@ -5,14 +5,19 @@ class Breathing : Activities
 
     public void RunActivity()
     {
-         Console.CursorVisible = false;
         Console.Clear();
-        DateTime endTime = DateTime.Now.AddSeconds(5);
+        StartMessage();
+        Console.CursorVisible = false;
+        Console.Clear();
+        DateTime endTime = DateTime.Now.AddSeconds(GetTime());
         while (DateTime.Now < endTime)
         {
             BreathIn();
             BreathOut();
         }
+        Console.Clear();
+        EndMessage();
+
     }
     public void BreathIn()
     {
