@@ -45,7 +45,7 @@ class Activities
         Console.CursorVisible = false;
         Console.Clear();
         Console.Write($"{message} ");
-        string spinnerAnimation = "-\\|/";
+        string spinnerAnimation = ".oO080Oo.";
         int index = 0;
         DateTime endTime = DateTime.Now.AddSeconds(count);
         while (DateTime.Now < endTime)
