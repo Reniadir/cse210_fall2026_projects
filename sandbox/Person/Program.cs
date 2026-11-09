@@ -2,18 +2,14 @@
 {
     static void Main()
     {
-        Person myPerson = new Person("Bob", "Builder", 87, 238);
-        Console.WriteLine(myPerson.GetPersonInfo());
-
         Police myPolice = new Police("Steven", "Sharp", 33, 205, "Sword");
-        Console.WriteLine(myPolice.GetPoliceInfo());
+        Console.WriteLine(myPolice.GetPersonInfo());
 
         Doctor myDoctor = new Doctor("Bill", "Cipher", 55, 150, "Knife");
-        Console.WriteLine(myDoctor.GetDoctorInfo());
+        Console.WriteLine(myDoctor.GetPersonInfo());
 
         List<Person> myPeople = new List<Person>();
 
-        myPeople.Add(myPerson);
         myPeople.Add(myPolice);
         myPeople.Add(myDoctor);
 
