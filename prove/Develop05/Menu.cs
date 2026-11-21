@@ -17,6 +17,12 @@ public class Menu
     }
     public int CreateGoalMenu()
     {
-        return 0;
+        Console.WriteLine("The types of Goals are:");
+        Console.WriteLine("  1. Simple Goal");
+        Console.WriteLine("  2. Eternal Goal");
+        Console.WriteLine("  3. Checklist Goal");
+        Console.Write("Which type of goal would you like to create? ");
+        int userInput = int.Parse(Console.ReadLine());
+        return userInput;
     }
 }

@@ -26,15 +26,27 @@ public abstract class BaseGoal
         Console.Write("Please enter the name of your goal?");
         _name = Console.ReadLine();
     }
+    public string GetGoalName()
+    {
+        return _name;
+    }
     private void SetGoalDesc()
     {
         Console.Write("Please enter the description of your Goal: ");
         _desc = Console.ReadLine();
     }
+    public string GetGoalDesc()
+    {
+        return _desc;
+    }
     private void SetGoalPoints()
     {
         Console.Write($"Please enter the number of points for goal {_name}: ");
         _points = int.Parse(Console.ReadLine());
+    }
+    public int GetGoalPoints()
+    {
+        return _points;
     }
     public virtual string GetConsoleString()
     {
@@ -45,12 +57,21 @@ public abstract class BaseGoal
         }
         return $"[{qcomplete}] - {_goalType}, Goal name: {_name} Desc: {_desc} Points: {_points}";
     }
-    public int MarkComplete()
+    public virtual string GetFileSystemString()
+    {
+        return $"{_name}#{_desc}#{_points}#{_status}#{_goalType}";
+    }
+    public virtual string GetGoalType()
+    {
+        return $"{_goalType}";
+    }
+    public bool IsComplete()
+    {
+        return _status;
+    }
+    public void MarkComplete()
     {
         _status = true;
-        return _points;
-
     }
-    public abstract void CreateGoal();
     public abstract int RecordEvent();
 }
